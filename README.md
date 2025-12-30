@@ -35,6 +35,7 @@ src/
 ├── utils/
 │   └── logger.js          # Structured JSON logger
 └── server.js              # Express bootstrap
+```
 
 🚀 Getting Started
 1️⃣ Install dependencies

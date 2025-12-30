@@ -1,4 +1,4 @@
-Image AIGC Gateway
+#Image AIGC Gateway
 A production‑ready Image Generation Gateway compatible with the OpenAI Images API, designed for multi‑provider routing, protocol‑level compatibility, and long‑term maintainability.
 
 ✨ Features

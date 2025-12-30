@@ -18,8 +18,9 @@ A production‑ready Image Generation Gateway compatible with the OpenAI Images 
 
 ✅ Stateless & concurrency‑safe
 
-📦 Project Structure
-代码
+## 📦 Project Structure
+
+```text
 src/
 ├── api/
 │   └── images.js          # OpenAI-compatible HTTP API
@@ -34,6 +35,7 @@ src/
 ├── utils/
 │   └── logger.js          # Structured JSON logger
 └── server.js              # Express bootstrap
+
 🚀 Getting Started
 1️⃣ Install dependencies
 bash

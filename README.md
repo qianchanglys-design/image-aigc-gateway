@@ -39,21 +39,24 @@ src/
 
 🚀 Getting Started
 1️⃣ Install dependencies
-bash
+```bash
 npm install
+```
 2️⃣ Start the server
-bash
+```bash
 npm start
+```
 Server will run on:
-
-代码
+```代码
 http://localhost:3000
+```
 🖼 Image Generation API
 Endpoint
-代码
+```代码
 POST /v1/images/generations
+```
 Request Body
-json
+```json
 {
   "model": "gpt-image-1",
   "prompt": "a futuristic city",
@@ -61,66 +64,68 @@ json
   "n": 1,
   "response_format": "url"
 }
+```
 Parameters
+```Text
 Field	Type	Required	Description
 model	string	❌	Model name (used for provider routing)
 prompt	string	✅	Image generation prompt
 size	string	❌	Image size (default: 1024x1024)
 n	number	❌	Number of images (default: 1)
 response_format	string	❌	url or b64_json (default: url)
+```
 📤 Response Format
 response_format: "url"
-json
+```json
 {
   "created": 1767091282,
   "data": [
     { "url": "https://via.placeholder.com/1024" }
   ]
 }
+```
 response_format: "b64_json"
-json
+```json
 {
   "created": 1767091282,
   "data": [
     { "b64_json": "bW9jayBpbWFnZSBjb250ZW50" }
   ]
 }
+```
 🔀 Model → Provider Routing
 Routing is handled in:
-
-代码
+```代码
 src/engine/imageEngine.js
+```
 Example:
-
-js
+```js
 const providerMap = {
   'gpt-image-1': openaiProvider,
   'mj-v6': mockProvider,
   'default': mockProvider
 };
-Unmatched models automatically fall back to default
-
-Providers are fully interchangeable
-
-API layer remains unchanged
+```
+>Unmatched models automatically fall back to default
+>Providers are fully interchangeable
+>API layer remains unchanged
 
 🔌 Enabling OpenAI Provider
 1️⃣ Set environment variable
-bash
+```Bash
 export OPENAI_API_KEY=your_api_key_here
+```
 2️⃣ Enable provider mapping
-In src/engine/imageEngine.js:
-
-js
+```Js
 const openaiProvider = require('../providers/openai');
 
 'gpt-image-1': openaiProvider,
+```
 No other code changes are required.
 
 ❌ Error Handling
 All errors follow OpenAI‑style error format:
-
-json
+```json
 {
   "error": {
     "message": "prompt is required",
@@ -129,14 +134,14 @@ json
     "code": null
   }
 }
-Error Types
+```
+Supported error types:
+```Text
 invalid_request_error
-
 authentication_error
-
 api_error
-
 internal_error
+```
 
 Errors are:
 

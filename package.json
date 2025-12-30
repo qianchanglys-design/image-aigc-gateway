@@ -1,1 +1,13 @@
-
+{
+  "name": "image-aigc-gateway",
+  "version": "0.1.0",
+  "description": "A unified Image AIGC gateway compatible with OpenAI Images API",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "dotenv": "^16.4.5"
+  }
+}
